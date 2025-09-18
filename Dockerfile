@@ -9,7 +9,11 @@ RUN go build -o /go-sample-action .
 # --- Final stage
 FROM debian:bookworm-slim
 
-# Copy binary only (keeps image small)
+COPY --from=builder /usr/local/go /usr/local/go
+ENV PATH="/usr/local/go/bin:${PATH}"
+
+RUN go version
+
 COPY --from=builder /go-sample-action /go-sample-action
 
 WORKDIR /workspace

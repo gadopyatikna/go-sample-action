@@ -16,11 +16,13 @@ func run(cmd string, args ...string) error {
 func main() {
 	fmt.Println("🔨 Building...")
 	if err := run("go", "build", "./..."); err != nil {
+		fmt.Println("Build failed:", err)
 		os.Exit(1)
 	}
 
 	fmt.Println("✅ Running tests...")
 	if err := run("go", "test", "./..."); err != nil {
+		fmt.Println("Test failed:", err)
 		os.Exit(1)
 	}
 

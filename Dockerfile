@@ -13,6 +13,6 @@ COPY --from=builder /usr/local/go /usr/local/go
 ENV PATH="/usr/local/go/bin:${PATH}"
 
 WORKDIR /workspace
-ENTRYPOINT ["/go-action"]
+ENTRYPOINT ["/go-sample-action"]
 
 CMD ['build']

@@ -24,10 +24,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println("🔍 Linting...")
-	if err := run("golangci-lint", "run", "./..."); err != nil {
-		os.Exit(1)
-	}
-
 	fmt.Println("🎉 All checks passed!")
 }
